@@ -1,20 +1,14 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 import { Container, Menu, Icon, Image } from "semantic-ui-react";
 
-const Navbar = ({
-  auth: {
-    isAuthenticated,
-    loading,
-    user: { name, avatar }
-  },
-  logout
-}) => {
+const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const authLinks = (
     <Fragment>
+      {console.log(user)}
       <Menu.Item>
         <Link to="/my_post">My Post</Link>
       </Menu.Item>
@@ -24,7 +18,7 @@ const Navbar = ({
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to={`/profileme`}>
+        <Link to={`/profile/${user._id}`}>
           <Image
             src="//www.gravatar.com/avatar/0f9567f10713a42105ef8b2247ffcc96?s=200&r=pg&d=mm"
             avatar
@@ -33,13 +27,16 @@ const Navbar = ({
         </Link>
       </Menu.Item>
       {/* <Menu.Item>
-        <Link to="/upload_file">Upload_file</Link>
-      </Menu.Item> */}
+      <Link to="/upload_file">Upload_file</Link>
+    </Menu.Item> */}
       {/* <Menu.Item>
-        <Link onClick={logout} to="/">
-          <span className="hide-sm"> Logout</span>
-        </Link>
-      </Menu.Item> */}
+      <Link onClick={logout} to="/">
+        <span className="hide-sm"> Logout</span>
+      </Link>
+    </Menu.Item> */}
+      {/* <Menu.Item>
+      <Icon size="large" name="ellipsis vertical" />
+    </Menu.Item> */}
     </Fragment>
   );
 
@@ -52,6 +49,7 @@ const Navbar = ({
       </Menu.Item>
     </Fragment>
   );
+
   return (
     <Fragment>
       <Menu fixed="top" borderless piled>

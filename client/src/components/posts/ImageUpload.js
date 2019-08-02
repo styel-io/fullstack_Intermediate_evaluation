@@ -53,9 +53,9 @@ class ImageUpload extends Component {
       <div className="feedImage">
         <form onSubmit={this._handleSubmit}>
           <input type="file" onChange={this._handleImageChange} />
-          <button type="submit" onClick={this._handleSubmit}>
+          {/* <button type="submit" onClick={this._handleSubmit}>
             Upload Image
-          </button>
+          </button> */}
         </form>
         {$imagePreview}
       </div>
