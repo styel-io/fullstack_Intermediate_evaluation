@@ -5,6 +5,16 @@ a:hover {
   color: #8d8d8d;
 }
 
+ol,
+ul {
+  list-style: none;
+}
+
+.myPageHeader,
+div {
+  border: 1px solid black;
+}
+
 .ui.teal.header {
   color: #2e2e2e !important;
 }

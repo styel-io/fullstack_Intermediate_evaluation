@@ -15,6 +15,8 @@ import MyPost from "../posts/MyPost";
 import NotFound from "../layout/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import Upload_file from "../layout/Upload_file";
+import My_page from "../layout/My_page";
+import Add from "../posts/Add";
 
 const Routes = () => {
   return (
@@ -32,8 +34,10 @@ const Routes = () => {
         <PrivateRoute exact path="/posts" component={Posts} />
         <PrivateRoute exact path="/add_post" component={AddPost} />
         <PrivateRoute exact path="/my_post" component={MyPost} />
+        <PrivateRoute exact path="/my_page" component={My_page} />
         <PrivateRoute exact path="/posts/:id" component={Post} />
         <PrivateRoute exact path="/upload_file" component={Upload_file} />
+        <PrivateRoute exact path="/add" component={Add} />
         <Route component={NotFound} />
       </Switch>
     </section>

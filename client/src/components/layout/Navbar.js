@@ -9,21 +9,17 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const authLinks = (
     <Fragment>
       {console.log(user)}
-      <Menu.Item>
+      {/* <Menu.Item>
         <Link to="/my_post">My Post</Link>
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item>
-        <Link to="/add_post">
+        <Link to="/add">
           <Icon size="big" name="add circle" />
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to={`/profile/${user._id}`}>
-          <Image
-            src="//www.gravatar.com/avatar/0f9567f10713a42105ef8b2247ffcc96?s=200&r=pg&d=mm"
-            avatar
-            size="mini"
-          />
+        <Link to="/my_page">
+          <Image src={user.avatar} avatar size="mini" />
         </Link>
       </Menu.Item>
       {/* <Menu.Item>

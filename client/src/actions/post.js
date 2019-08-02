@@ -8,7 +8,8 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  ADD_IMAGE
 } from "./types";
 
 // Get posts
