@@ -11,33 +11,29 @@ import ProfileDetail from "../components/profile/ProfileDetail";
 
 import "../styles/containers/ProfileInfo.css";
 
-const ProfileInfo = ({ user }) => {
+const ProfileInfo = ({ auth }) => {
   return (
-    <div className="Profile__root container">
-      <div className="row Profile__user-info-container">
-        <Grid>
-          <Grid.Column width={6}>
-            <ProfileAvatar />
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <h3 className="Profile__username">{user.name}</h3>
-            <EditProfileButton />
-            <ProfileEtcMenu />
-            <ProfileStatus />
-            <ProfileDetail />
-          </Grid.Column>
-        </Grid>
-      </div>
-    </div>
+    <Grid>
+      <Grid.Column width={6}>
+        <ProfileAvatar />
+      </Grid.Column>
+      <Grid.Column width={10}>
+        <h3 className="Profile__username">{auth.user.name}</h3>
+        <EditProfileButton />
+        <ProfileEtcMenu />
+        <ProfileStatus />
+        <ProfileDetail />
+      </Grid.Column>
+    </Grid>
   );
 };
 
 ProfileInfo.propTypes = {
-  user: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  auth: state.auth
 });
 
 export default connect(mapStateToProps)(ProfileInfo);

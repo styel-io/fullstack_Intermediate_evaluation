@@ -16,7 +16,7 @@ const initialState = {
   user: { _id: "5d3c98671566f745f600774d" }
 };
 
-export default function(state = initialState, action) {
+export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -52,4 +52,4 @@ export default function(state = initialState, action) {
     default:
       return state;
   }
-}
+};

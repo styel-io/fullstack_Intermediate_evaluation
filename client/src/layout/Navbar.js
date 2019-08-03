@@ -49,7 +49,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   return (
     <Fragment>
-      <Menu fixed="top" borderless piled>
+      <Menu fixed="top" borderless>
         <Container>
           <Menu.Item>
             <Link to="/">

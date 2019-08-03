@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -6,16 +6,6 @@ import { connect } from "react-redux";
 import { Icon, Button } from "semantic-ui-react";
 
 import { getProfileById } from "../actions/profile";
-
-// // components
-// import LoadMoreButton from "../components/LoadMoreButton";
-// import NewPostModal from "../components/NewPostModal";
-// import NewPostButton from "../components/NewPostButton";
-// import ConfirmationModal from "../components/ConfirmationModal";
-
-// // containers
-// import PhotoGrid from "../containers/PhotoGrid";
-// import NotificationCardsContainer from "../containers/NotificationCardsContainer";
 
 // css
 import "../styles/Profile.css";

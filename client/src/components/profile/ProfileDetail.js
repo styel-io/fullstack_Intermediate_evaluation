@@ -1,22 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const ProfileDetail = ({ website }) => {
+const ProfileDetail = ({ profile }) => {
+  console.log(profile.website);
   return (
     <div>
       <div>love ethereum</div>
-      <div>{`${website}`}</div>
+      <div>{profile.website}</div>
     </div>
   );
 };
 
 // props로 넣어줄 스토어 상태값
 const mapStateToProps = state => ({
-  website: state.profile.website
+  profile: state.profile
 });
 
 export default connect(mapStateToProps)(ProfileDetail);
-
-// ProfileDetail.defaultProps = {
-//   website: "styel.io"
-// };

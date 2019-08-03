@@ -9,8 +9,6 @@ import {
   LOGIN_SUCCESS,
   LOGOUT
 } from "./types";
-import { async } from "rxjs/internal/scheduler/async";
-import { dispatch } from "rxjs/internal/observable/pairs";
 import setAuthToken from "../utils/setAuthToken";
 
 // Load User

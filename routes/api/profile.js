@@ -16,7 +16,7 @@ router.get("/me", auth, async (req, res) => {
     // 요청받은 유저 값을 데이터베이스에서 찾고 populate를 실행하여 담는다. 몽구스 메소드 함수인 populate에 대한 이해는 https://www.zerocho.com/category/MongoDB/post/59a66f8372262500184b5363 를 읽어보자.
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       "user",
-      ["name", "avatar"]
+      [("name", "avatar")]
     );
 
     // 만약 프로파일이 없으면 상태값 400과 메시지를 클라이언트에게 전달한다
