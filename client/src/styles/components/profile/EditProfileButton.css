@@ -1,0 +1,13 @@
+.Profile__edit-button a {
+  display: inline-block;
+  width: 100%;
+  color: #999;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.1px;
+}
+
+.Profile__edit-button a:hover {
+  color: #999;
+}

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Icon, Image, Button } from "semantic-ui-react";
 
+import "../../styles/profile/ProfileAvatar.css";
+
 const ProfileAvatar = ({ auth: { user }, profile }) => {
   return (
     <div className="Profile__avatar-img-wrapper">
