@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
+import { Image } from "semantic-ui-react";
 
 const NotFound = () => {
   return (
     <Fragment>
-      <h1 className="x-large text-primary">
-        <i className="fas fa-exclamation-triangle" /> Page Not Found
-      </h1>
-      <p className="large">Sorry, this page does not exist</p>
+      <Image
+        src="https://styel.s3.ap-northeast-2.amazonaws.com/404.png"
+        centered
+      />
     </Fragment>
   );
 };
