@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
-import Modal from "react-modal";
+import { Button, Header, Image, Modal } from "semantic-ui-react";
+
 import "../styles/ConfirmationModal.css";
 
 const ConfirmationModal = props => {
@@ -57,11 +58,11 @@ const ConfirmationModal = props => {
 export default ConfirmationModal;
 
 ConfirmationModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onRequestClose: PropTypes.func.isRequired,
-  onConfirmClick: PropTypes.func.isRequired,
-  confirmText: PropTypes.string.isRequired,
-  cancelText: PropTypes.string.isRequired
+  // isOpen: PropTypes.bool.isRequired,
+  // onRequestClose: PropTypes.func.isRequired,
+  // onConfirmClick: PropTypes.func.isRequired,
+  // confirmText: PropTypes.string.isRequired,
+  // cancelText: PropTypes.string.isRequired
 };
 
 ConfirmationModal.defaultProps = {

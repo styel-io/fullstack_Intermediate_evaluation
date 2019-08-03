@@ -31,6 +31,29 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+// @route    Get api/profile/user/:user_id
+// @desc     Get profile by user ID  // 시멘틱 url로 전달받은 user_id값으로 프로파일 가져오기
+// @access   Public
+router.get("/user/:user_id", async (req, res) => {
+  try {
+    console.log("get user profile by id");
+    const profile = await Profile.findOne({
+      user: req.params.user_id
+    }).populate("user", ["name", "avatar"]);
+
+    if (!profile) return res.status(400).json({ msg: "Profile not found" });
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+
+    if (err.kind === "ObjectId") {
+      return res.status(400).json({ msg: "Profile not found" });
+    }
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route    POST api/profile
 // @desc     Create or update user profile // 유저 프로파일 생성 및 수정
 // @access   Private
@@ -117,29 +140,6 @@ router.get("/", async (req, res) => {
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-});
-
-// @route    Get api/profile/user/:user_id
-// @desc     Get profile by user ID  // 시멘틱 url로 전달받은 user_id값으로 프로파일 가져오기
-// @access   Public
-router.get("/user/:user_id", async (req, res) => {
-  try {
-    console.log("get user profile by id");
-    const profile = await Profile.findOne({
-      user: req.params.user_id
-    }).populate("user", ["name", "avatar"]);
-
-    if (!profile) return res.status(400).json({ msg: "Profile not found" });
-
-    res.json(profile);
-  } catch (err) {
-    console.error(err.message);
-
-    if (err.kind === "ObjectId") {
-      return res.status(400).json({ msg: "Profile not found" });
-    }
     res.status(500).send("Server Error");
   }
 });

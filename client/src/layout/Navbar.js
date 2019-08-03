@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
+import { logout } from "../actions/auth";
 import { Container, Menu, Icon, Image } from "semantic-ui-react";
 
 import "../styles/navbar.css";
@@ -20,7 +20,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to="/pf/me">
+        <Link to={`/pf/${user.name}`}>
           <Image src={user.avatar} avatar size="mini" />
         </Link>
       </Menu.Item>
