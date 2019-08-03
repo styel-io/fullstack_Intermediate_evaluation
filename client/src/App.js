@@ -4,7 +4,7 @@ import Navbar from "./layout/Navbar";
 import Feed from "./layout/Feed";
 
 // Routing
-import Routes from "./components/routing/Routes";
+import Routes from "./routes/Routes";
 
 // Redux
 import { Provider } from "react-redux";

@@ -2,12 +2,7 @@ import React, { Component, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "./Spinner";
-import { loadUser } from "../actions/auth";
-import axios from "axios";
 import { Icon, Image, Button } from "semantic-ui-react";
-
-import { getCurrentProfile } from "../actions/profile";
 
 // components
 import LoadMoreButton from "../components/LoadMoreButton";
@@ -23,15 +18,7 @@ import NotificationCardsContainer from "../containers/NotificationCardsContainer
 // css
 import "../styles/Profile.css";
 
-const ProfileMe = ({
-  getCurrentProfile,
-  auth: { user },
-  profile: { profile, loading }
-}) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
-
+const ProfileMe = ({ auth: { user }, profile: { profile, loading } }) => {
   return (
     <div>
       <ProfileInfo />
@@ -47,7 +34,6 @@ const ProfileMe = ({
 };
 
 ProfileMe.propTypes = {
-  getProfileById: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -56,7 +42,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentProfile }
-)(ProfileMe);
+export default connect(mapStateToProps)(ProfileMe);
