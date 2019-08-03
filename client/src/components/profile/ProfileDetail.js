@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const ProfileDetail = ({ profile: { profile, loading } }) => {
+const ProfileDetail = ({ profile: { profile } }) => {
   return (
     <div>
       <div>{profile.location}</div>
