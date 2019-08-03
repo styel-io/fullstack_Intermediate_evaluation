@@ -3,16 +3,6 @@
   text-align: center;
 }
 
-.Profile__user-info-container {
-  padding: 40px 0;
-}
-
-.Profile__edit-button {
-  padding: 0.3em 1.2em;
-  line-height: 1;
-  vertical-align: middle;
-}
-
 .Profile__menu-button {
   display: inline-block;
   line-height: 1;

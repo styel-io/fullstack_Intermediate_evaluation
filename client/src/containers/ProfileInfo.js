@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Grid, Image, Button } from "semantic-ui-react";
 
 import { getCurrentProfile } from "../actions/profile";
 
@@ -24,15 +25,17 @@ const ProfileInfo = ({
   return (
     <div className="Profile__root container">
       <div className="row Profile__user-info-container">
-        <div className="four columns">
-          <ProfileAvatar />
-        </div>
-        <div className="five columns">
-          <h3 className="Profile__username">{user.name}</h3>
-          <EditProfileButton />
-          <ProfileEtcMenu />
-          <ProfileStatus />
-        </div>
+        <Grid>
+          <Grid.Column width={6}>
+            <ProfileAvatar />
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <h3 className="Profile__username">{user.name}</h3>
+            <EditProfileButton />
+            <ProfileEtcMenu />
+            <ProfileStatus />
+          </Grid.Column>
+        </Grid>
       </div>
     </div>
   );

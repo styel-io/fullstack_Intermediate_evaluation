@@ -1,3 +1,7 @@
+.Profile__user-info-container {
+  padding: 40px 0;
+}
+
 .Profile__username {
   display: inline-block;
   margin-right: 10px;
