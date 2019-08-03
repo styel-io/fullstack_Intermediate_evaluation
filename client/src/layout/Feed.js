@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Container, Menu, Icon, Image, Grid, Segment } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 const Feed = () => {
   return (

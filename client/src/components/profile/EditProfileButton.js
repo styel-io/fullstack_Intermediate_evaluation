@@ -1,12 +1,8 @@
 import React from "react";
-import "../../styles/profile/EditProfileButton.css";
+import { Button } from "semantic-ui-react";
 
 const EditProfileButton = props => {
-  return (
-    <button>
-      <a className="Profile__edit-button">Edit Profile</a>
-    </button>
-  );
+  return <Button>Edit Profile</Button>;
 };
 
 export default EditProfileButton;

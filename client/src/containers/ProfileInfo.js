@@ -1,27 +1,17 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Grid, Image, Button } from "semantic-ui-react";
-
-import { getCurrentProfile } from "../actions/profile";
+import { Grid } from "semantic-ui-react";
 
 import ProfileAvatar from "../components/profile/ProfileAvatar";
 import EditProfileButton from "../components/profile/EditProfileButton";
 import ProfileStatus from "../components/profile/ProfileStatus";
 import ProfileEtcMenu from "../components/profile/ProfileEtcMenu";
+import ProfileDetail from "../components/profile/ProfileDetail";
 
 import "../styles/containers/ProfileInfo.css";
 
-const ProfileInfo = ({
-  getCurrentProfile,
-  auth: { user },
-  profile: { profile, loading }
-}) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
-
+const ProfileInfo = ({ user }) => {
   return (
     <div className="Profile__root container">
       <div className="row Profile__user-info-container">
@@ -34,6 +24,7 @@ const ProfileInfo = ({
             <EditProfileButton />
             <ProfileEtcMenu />
             <ProfileStatus />
+            <ProfileDetail />
           </Grid.Column>
         </Grid>
       </div>
@@ -42,16 +33,11 @@ const ProfileInfo = ({
 };
 
 ProfileInfo.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  profile: state.profile
+  user: state.auth.user
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentProfile }
-)(ProfileInfo);
+export default connect(mapStateToProps)(ProfileInfo);

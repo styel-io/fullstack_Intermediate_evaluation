@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -10,7 +10,6 @@ import "../styles/navbar.css";
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const authLinks = (
     <Fragment>
-      {console.log(user)}
       {/* <Menu.Item>
         <Link to="/my_post">My Post</Link>
       </Menu.Item> */}

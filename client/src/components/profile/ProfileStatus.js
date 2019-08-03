@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-function ProfileStatus(props) {
+const ProfileStatus = props => {
   return (
     <div className="Profile__stats">
       <div className="Profile__stats-item">
@@ -34,8 +33,6 @@ function ProfileStatus(props) {
       </div>
     </div>
   );
-}
-
-ProfileStatus.propTypes = {};
+};
 
 export default ProfileStatus;

@@ -1,24 +1,28 @@
-import React, { Component, Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Icon, Image, Button } from "semantic-ui-react";
 
 // components
-import LoadMoreButton from "../components/LoadMoreButton";
-import NewPostModal from "../components/NewPostModal";
-import NewPostButton from "../components/NewPostButton";
-import ConfirmationModal from "../components/ConfirmationModal";
+// import LoadMoreButton from "../components/LoadMoreButton";
+// import NewPostModal from "../components/NewPostModal";
+// import NewPostButton from "../components/NewPostButton";
+// import ConfirmationModal from "../components/ConfirmationModal";
+
+import { getCurrentProfile } from "../actions/profile";
 
 // containers
 import ProfileInfo from "../containers/ProfileInfo";
-import PhotoGrid from "../containers/PhotoGrid";
-import NotificationCardsContainer from "../containers/NotificationCardsContainer";
+// import PhotoGrid from "../containers/PhotoGrid";
+// import NotificationCardsContainer from "../containers/NotificationCardsContainer";
 
 // css
 import "../styles/Profile.css";
 
-const ProfileMe = ({ auth: { user }, profile: { profile, loading } }) => {
+const ProfileMe = ({ getCurrentProfile }) => {
+  useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
+
   return (
     <div>
       <ProfileInfo />
@@ -34,12 +38,10 @@ const ProfileMe = ({ auth: { user }, profile: { profile, loading } }) => {
 };
 
 ProfileMe.propTypes = {
-  auth: PropTypes.object.isRequired
+  getCurrentProfile: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth,
-  profile: state.profile
-});
-
-export default connect(mapStateToProps)(ProfileMe);
+export default connect(
+  null,
+  { getCurrentProfile }
+)(ProfileMe);

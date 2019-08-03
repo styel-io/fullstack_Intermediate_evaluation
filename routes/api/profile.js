@@ -92,7 +92,6 @@ router.post(
 
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
-
     if (status) profileFields.status = status;
 
     // Build social object
@@ -103,10 +102,13 @@ router.post(
     if (linkdin) profileFields.social.linkdin = linkdin;
     if (instagram) profileFields.social.instagram = instagram;
 
+    console.log(profileFields);
+
     try {
       // Profile 컬렉션에서 요청된 유저아이디를 찾아 profile변수에 담는다.
-      const profile = await Profile.findOne({ user: req.user.id });
+      let profile = await Profile.findOne({ user: req.user.id });
 
+      console.log(profile);
       // 만약 프로파일이 존재하면 업데이트한다.
       if (profile) {
         // Update
@@ -122,6 +124,7 @@ router.post(
       // Create
       profile = new Profile(profileFields);
 
+      console.log(profile);
       await profile.save();
       res.json(profile);
     } catch (err) {

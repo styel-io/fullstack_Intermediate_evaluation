@@ -1,23 +1,21 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "./Spinner";
-import { loadUser } from "../actions/auth";
-import axios from "axios";
-import { Icon, Image, Button } from "semantic-ui-react";
+
+import { Icon, Button } from "semantic-ui-react";
 
 import { getProfileById } from "../actions/profile";
 
-// components
-import LoadMoreButton from "../components/LoadMoreButton";
-import NewPostModal from "../components/NewPostModal";
-import NewPostButton from "../components/NewPostButton";
-import ConfirmationModal from "../components/ConfirmationModal";
+// // components
+// import LoadMoreButton from "../components/LoadMoreButton";
+// import NewPostModal from "../components/NewPostModal";
+// import NewPostButton from "../components/NewPostButton";
+// import ConfirmationModal from "../components/ConfirmationModal";
 
-// containers
-import PhotoGrid from "../containers/PhotoGrid";
-import NotificationCardsContainer from "../containers/NotificationCardsContainer";
+// // containers
+// import PhotoGrid from "../containers/PhotoGrid";
+// import NotificationCardsContainer from "../containers/NotificationCardsContainer";
 
 // css
 import "../styles/Profile.css";
