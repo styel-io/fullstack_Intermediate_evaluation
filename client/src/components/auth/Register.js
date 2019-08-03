@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
-import Alert from "../layout/Alert";
+import Alert from "../../layout/Alert";
 import {
   Button,
   Form,

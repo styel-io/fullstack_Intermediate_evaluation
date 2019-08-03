@@ -2,10 +2,10 @@ import React, { Component, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "../layout/Spinner";
-import { load } from "../../actions/auth";
+import Spinner from "./Spinner";
+import { loadUser } from "../../actions/auth";
 import axios from "axios";
-import { Container, Menu, Icon, Image } from "semantic-ui-react";
+import { Icon, Image } from "semantic-ui-react";
 
 import { getCurrentProfile } from "../../actions/profile";
 

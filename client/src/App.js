@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
-import Main from "./components/layout/Main";
+import Navbar from "./layout/Navbar";
+import Feed from "./layout/Feed";
 
 // Routing
 import Routes from "./components/routing/Routes";
@@ -14,6 +14,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { Container } from "semantic-ui-react";
 
 import "./App.css";
+import "./components/styles/index.css";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -32,7 +33,7 @@ const App = () => {
           <div className="mainFrame">
             <Navbar />
             <Switch>
-              <Route exact path="/" component={Main} />
+              <Route exact path="/" component={Feed} />
               <Route component={Routes} />
             </Switch>
           </div>

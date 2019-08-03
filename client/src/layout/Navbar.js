@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 import { Container, Menu, Icon, Image } from "semantic-ui-react";
 
+import "../styles/navbar.css";
+
 const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const authLinks = (
     <Fragment>
@@ -18,7 +20,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to="/my_page">
+        <Link to="/pf/me">
           <Image src={user.avatar} avatar size="mini" />
         </Link>
       </Menu.Item>

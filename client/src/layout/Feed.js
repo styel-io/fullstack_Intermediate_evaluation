@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Container, Menu, Icon, Image, Grid, Segment } from "semantic-ui-react";
 
-const Main = () => {
+const Feed = () => {
   return (
     <article>
       <Fragment>
@@ -46,4 +46,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Feed;

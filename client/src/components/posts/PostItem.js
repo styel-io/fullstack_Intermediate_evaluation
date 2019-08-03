@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { connect } from "react-redux";
 import { addLike, removeLike, deletePost } from "../../actions/post";
-import { Container, Menu, Icon, Image } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 const PostItem = ({
   addLike,
