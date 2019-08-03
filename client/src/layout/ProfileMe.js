@@ -1,8 +1,4 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
-import { getCurrentProfile } from "../actions/profile";
+import React from "react";
 
 // containers
 import ProfileInfo from "../containers/ProfileInfo";
@@ -10,19 +6,8 @@ import ProfileInfo from "../containers/ProfileInfo";
 // css
 import "../styles/Profile.css";
 
-const ProfileMe = ({ getCurrentProfile }) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
-
+const ProfileMe = props => {
   return <ProfileInfo />;
 };
 
-ProfileMe.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired
-};
-
-export default connect(
-  null,
-  { getCurrentProfile }
-)(ProfileMe);
+export default ProfileMe;

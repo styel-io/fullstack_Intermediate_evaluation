@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { getCurrentProfile } from "../../actions/profile";
 
-const ProfileDetail = ({ profile }) => {
-  console.log(profile.website);
+const ProfileDetail = ({ getCurrentProfile, profile }) => {
+  useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
+  console.log(profile);
   return (
     <div>
       <div>love ethereum</div>
@@ -11,9 +16,14 @@ const ProfileDetail = ({ profile }) => {
   );
 };
 
-// props로 넣어줄 스토어 상태값
+ProfileDetail.propTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
+};
 const mapStateToProps = state => ({
   profile: state.profile
 });
-
-export default connect(mapStateToProps)(ProfileDetail);
+export default connect(
+  mapStateToProps,
+  { getCurrentProfile }
+)(ProfileDetail);
