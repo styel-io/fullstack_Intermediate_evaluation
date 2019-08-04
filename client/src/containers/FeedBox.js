@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Image, Grid } from "semantic-ui-react";
 import "../styles/containers/FeedBox.css";
 
-import FeedboxUserInfo from "../components/feedbox/FeedboxUserInfo";
+import FeedBoxUserInfo from "../components/feedbox/FeedBoxUserInfo";
 import FeedBoxActionBox from "../components/feedbox/FeedBoxActionBox";
 import FeedBoxImageContainer from "../components/feedbox/FeedBoxImageContainer";
 
@@ -15,7 +15,7 @@ function FeedBox({ auth: { user } }) {
       <Grid stackable centered className="feedBox">
         <FeedBoxImageContainer />
         <Grid.Column width={6} className="FeedBox_info-container">
-          <FeedboxUserInfo />
+          <FeedBoxUserInfo />
           <Grid.Row>
             <Grid className="FeedBox_caption">
               <Grid.Row>

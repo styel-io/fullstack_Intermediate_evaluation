@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { Image, Grid, Icon } from "semantic-ui-react";
-import "../../styles/components/feedbox/FeedboxUserInfo.css";
+import "../../styles/components/feedbox/FeedBoxUserInfo.css";
 
-const FeedboxUserInfo = ({ user }) => {
+const FeedBoxUserInfo = ({ user }) => {
   return (
     <Grid.Row className="FeedBox_user-info" verticalAlign="top">
       <Grid verticalAlign="middle">
@@ -23,10 +23,10 @@ const FeedboxUserInfo = ({ user }) => {
   );
 };
 
-FeedboxUserInfo.propTypes = {
+FeedBoxUserInfo.propTypes = {
   user: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
   user: state.auth.user
 });
-export default connect(mapStateToProps)(FeedboxUserInfo);
+export default connect(mapStateToProps)(FeedBoxUserInfo);
