@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { Icon, Button } from "semantic-ui-react";
-import Spinner from "../layout/Spinner";
+// import Spinner from "../layout/Spinner";
 
 import { getProfileById } from "../actions/profile";
 

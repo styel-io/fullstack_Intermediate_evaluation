@@ -2,40 +2,20 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { Image, Grid, Icon, Input } from "semantic-ui-react";
+import { Image, Grid } from "semantic-ui-react";
 import "../styles/containers/FeedBox.css";
 
-// import FeedTextBox from "../components/FeedTextBox";
+import FeedboxUserInfo from "../components/feedbox/FeedboxUserInfo";
+import FeedBoxActionBox from "../components/feedbox/FeedBoxActionBox";
+import FeedBoxImageContainer from "../components/feedbox/FeedBoxImageContainer";
 
 function FeedBox({ auth: { user } }) {
   return (
     <Fragment>
       <Grid stackable centered className="feedBox">
-        <Grid.Column
-          width={10}
-          className="feedBox_image-container"
-          verticalAlign="top"
-        >
-          <Image
-            src="https://elasticbeanstalk-us-east-1-316780406076.s3.amazonaws.com/4efdd2f969559e8b1c92e99f32ded48e130435.png"
-            centered
-          />
-        </Grid.Column>
+        <FeedBoxImageContainer />
         <Grid.Column width={6} className="FeedBox_info-container">
-          <Grid.Row className="FeedBox_user-info" verticalAlign="top">
-            <Grid verticalAlign="middle">
-              <Grid.Column width={2}>
-                <Image src={user.avatar} avatar size="mini" />
-              </Grid.Column>
-              <Grid.Column width={13}>
-                <h3 className="FeedBox_username">{user.name}</h3>
-              </Grid.Column>
-              <Grid.Column width={1}>
-                <Icon name="ellipsis horizontal" size="large" />
-              </Grid.Column>
-            </Grid>
-          </Grid.Row>
-
+          <FeedboxUserInfo />
           <Grid.Row>
             <Grid className="FeedBox_caption">
               <Grid.Row>
@@ -63,7 +43,8 @@ function FeedBox({ auth: { user } }) {
                 id mauris sit amet ipsum ultrices vulputate vel eu enim. Aenean
                 vehicula hendrerit lectus ac molestie. Praesent hendrerit ipsum
                 luctus massa
-                <a>#styel</a> &nbsp;<a>#test</a> &nbsp;<a>#good</a>
+                <a href="/">#styel</a> &nbsp;<a href="/">#test</a> &nbsp;
+                <a href="/">#good</a>
               </Grid.Row>
               <Grid.Row className="FeedBox__comments">
                 코멘트 박스 리드 생성
@@ -75,30 +56,7 @@ function FeedBox({ auth: { user } }) {
               </Grid.Row>
             </Grid>
           </Grid.Row>
-          <Grid.Row className="FeedBoxInputReply" verticalAlign="bottom">
-            <Grid>
-              <Grid.Row>
-                <Grid verticalAlign="middle" className="FeedBox_like-box">
-                  <Grid.Column width={2}>
-                    <Icon name="heart outline" size="large" />
-                  </Grid.Column>
-                  <Grid.Column width={13}>
-                    <Icon name="share alternate" size="large" />
-                  </Grid.Column>
-                  <Grid.Column width={1}>
-                    <Icon name="bookmark outline" size="large" />
-                  </Grid.Column>
-                </Grid>
-              </Grid.Row>
-              <Grid.Row>
-                <Input
-                  transparent
-                  placeholder="Add a comment"
-                  className="FeedBox_comment-box"
-                />
-              </Grid.Row>
-            </Grid>
-          </Grid.Row>
+          <FeedBoxActionBox />
         </Grid.Column>
       </Grid>
 
