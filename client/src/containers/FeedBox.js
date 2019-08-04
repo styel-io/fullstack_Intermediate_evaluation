@@ -102,7 +102,7 @@ function FeedBox({ auth: { user } }) {
         </Grid.Column>
       </Grid>
 
-      <Grid className="feedSpace feedBox" />
+      <Grid className="feedSpace " />
 
       <div>
         <div className="feedBox">

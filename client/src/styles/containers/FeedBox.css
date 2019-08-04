@@ -1,6 +1,11 @@
 .feedBox {
   border: 1px solid rgb(238, 238, 238);
 }
+@media only screen and (max-width: 767px) {
+  .feedBox {
+    border: 0px solid rgb(238, 238, 238);
+  }
+}
 
 .FeedBox_username {
   padding-left: 1rem;
@@ -78,8 +83,22 @@
   margin-top: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  overflow: auto;
+  overflow-y: scroll;
   height: calc(100% - 182px);
+  -ms-overflow-style: none;
+}
+.FeedBox_caption:hover {
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 767px) {
+  .FeedBox_caption {
+    position: relative;
+    height: 300px;
+  }
+  .FeedBox_caption:hover {
+    overflow-y: scroll;
+  }
 }
 
 .FeedBox_like-box {
