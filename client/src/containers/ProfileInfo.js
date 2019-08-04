@@ -11,14 +11,14 @@ import ProfileDetail from "../components/profile/ProfileDetail";
 
 import "../styles/containers/ProfileInfo.css";
 
-const ProfileInfo = ({ auth }) => {
+const ProfileInfo = ({ auth: { user } }) => {
   return (
     <Grid>
       <Grid.Column width={6}>
         <ProfileAvatar />
       </Grid.Column>
       <Grid.Column width={10}>
-        <h3 className="Profile__username">{auth.user.name}</h3>
+        <h3 className="Profile__username">{user.name}</h3>
         <EditProfileButton />
         <ProfileEtcMenu />
         <ProfileStatus />

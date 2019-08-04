@@ -33,32 +33,7 @@ div {
 }
 
 .mainFrame {
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
-}
-
-.imageBox {
-  max-width: 560px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.feedBox {
-  border: 0 solid lightgray;
-}
-
-.feedImage {
-  max-width: 560px;
-  width: 100%;
-  display: inline-block;
-}
-
-.feedContent {
-  max-width: 298px;
-  display: inline-block;
-}
-
-.feedSpace {
-  height: 50px;
 }

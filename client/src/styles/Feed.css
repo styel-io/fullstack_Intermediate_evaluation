@@ -1,0 +1,19 @@
+.feedBox {
+  border: 1px solid lightgray;
+}
+
+.feedImage {
+  max-width: 600px;
+  width: 100%;
+  display: inline-block;
+}
+
+.feedContent {
+  max-width: 350px;
+  width: 100%;
+  display: inline-block;
+}
+
+.feedSpace {
+  height: 50px;
+}
