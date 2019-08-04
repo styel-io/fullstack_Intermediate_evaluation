@@ -1,5 +1,14 @@
 .feedBox {
-  border: 1px solid lightgray;
+  border: 1px solid rgb(238, 238, 238);
+}
+
+.FeedBox_username {
+  padding-left: 1rem;
+}
+@media only screen and (max-width: 767px) {
+  .FeedBox_username {
+    padding-left: 0px;
+  }
 }
 
 .ui.grid {
@@ -17,6 +26,7 @@
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ui.grid > .column:not(.row),
@@ -29,7 +39,7 @@
 }
 
 .feedBox_image-container {
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
 }
 
 .FeedBox_info-container {
@@ -43,32 +53,11 @@
 }
 
 .FeedBox_user-info {
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   padding-left: 1rem;
-  padding-right: 0px;
-  border: 1px solid #efefef;
-}
-
-@media only screen and (max-width: 767px) {
-  .ui.column.grid > [class*="three wide"].column,
-  .ui.grid > .column.row > [class*="three wide"].column,
-  .ui.grid > .row > [class*="three wide"].column,
-  .ui.grid > [class*="three wide"].column {
-    width: 10% !important;
-  }
-  .ui.column.grid > [class*="eleven wide"].column,
-  .ui.grid > .column.row > [class*="eleven wide"].column,
-  .ui.grid > .row > [class*="eleven wide"].column,
-  .ui.grid > [class*="eleven wide"].column {
-    width: 85% !important;
-  }
-  .ui.column.grid > [class*="two wide"].column,
-  .ui.grid > .column.row > [class*="two wide"].column,
-  .ui.grid > .row > [class*="two wide"].column,
-  .ui.grid > [class*="two wide"].column {
-    width: 5% !important;
-  }
+  padding-right: 1rem;
+  /* border: 1px solid #efefef; */
 }
 
 .FeedBoxInputReply {
@@ -85,8 +74,12 @@
 }
 
 .FeedBox_caption {
-  margin-top: 16px;
-  margin-right: 16px;
+  position: absolute;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  overflow: auto;
+  height: calc(100% - 182px);
 }
 
 .FeedBox_like-box {
