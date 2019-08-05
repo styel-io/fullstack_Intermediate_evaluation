@@ -172,6 +172,8 @@ const NewPost = ({ addPost }) => {
     setActiveStep(0);
   }
 
+  // https://basketdeveloper.tistory.com/55 리액트 이미지 파일 업로드 하기
+
   return (
     <div className="NewPost_align">
       <div className={classes.root}>
