@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 
 import Profile from "../layout/Profile";
 import ProfileMe from "../layout/ProfileMe";
+import NewPost from "../layout/NewPost";
 
 const Routes = () => {
   return (
@@ -22,6 +23,8 @@ const Routes = () => {
         <Route exact path="/profiles" component={Profiles} />
         <PrivateRoute exact path="/pf/:id" component={ProfileMe} />
         <PrivateRoute exact path="/profile/:id" component={Profile} />
+
+        <PrivateRoute exact path="/newpost" component={NewPost} />
 
         <Route component={NotFound} />
       </Switch>
