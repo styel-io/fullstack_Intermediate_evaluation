@@ -20,7 +20,7 @@ const FeedBoxUserInfo = ({
           <p className="FeedBox_dateFromNow">{moment(date).fromNow()}</p>
         </Grid.Column>
         <Grid.Column width={1}>
-          <Icon name="ellipsis horizontal" size="large" />
+          <Icon name="ellipsis horizontal" size="large" color="grey"/>
         </Grid.Column>
       </Grid>
     </Grid.Row>

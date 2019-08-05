@@ -16,6 +16,9 @@ const PostSchema = new Schema({
   imageurl: {
     type: String
   },
+  location: {
+    type: String
+  },
   avatar: {
     type: String
   },
