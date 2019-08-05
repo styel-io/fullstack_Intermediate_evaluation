@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getPosts } from "../actions/post";
 
+import Spinner from "../layout/Spinner";
+
+// containers
 import FeedBox from "../containers/FeedBox";
 
+// css
 import "../styles/Feed.css";
 
-const Feed = () => {
-  return <FeedBox />;
-};
+const Feed = ({ getPosts, post: { posts, post, loading } }) => {
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
 
-export default Feed;
+  return loading && post === null ? <Spinner /> : <FeedBox />;
+};
+const mapStateToProps = state => ({
+  post: state.post
+});
+export default connect(
+  mapStateToProps,
+  { getPosts }
+)(Feed);
