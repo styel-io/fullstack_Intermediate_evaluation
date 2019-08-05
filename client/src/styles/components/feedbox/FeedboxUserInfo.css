@@ -13,3 +13,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.FeedBox_dateFromNow {
+  color: rgb(146, 146, 146);
+  padding-left: 1rem;
+}
