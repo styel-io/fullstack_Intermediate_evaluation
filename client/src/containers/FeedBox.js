@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Image, Grid } from "semantic-ui-react";
 import "../styles/containers/FeedBox.css";
 
-import FeedBoxUserInfo from "../components/feedbox/FeedBoxUserInfo";
+import FeedBoxUserInfo from "../components/feedbox/FeedboxUserInfo";
 import FeedBoxActionBox from "../components/feedbox/FeedBoxActionBox";
 import FeedBoxImageContainer from "../components/feedbox/FeedBoxImageContainer";
 import FeedBoxCaption from "../components/feedbox/FeedBoxCaption";

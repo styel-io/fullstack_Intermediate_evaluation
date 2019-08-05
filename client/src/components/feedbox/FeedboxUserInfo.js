@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { Image, Grid, Icon } from "semantic-ui-react";
-import "../../styles/components/feedbox/FeedBoxUserInfo.css";
+import "../../styles/components/feedbox/FeedboxUserInfo.css";
 
 const FeedBoxUserInfo = ({ user }) => {
   return (
