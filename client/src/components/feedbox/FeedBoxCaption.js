@@ -1,38 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import { Grid } from "semantic-ui-react";
 import "../../styles/components/feedbox/FeedBoxCaption.css";
 
-function FeedBoxCaption(props) {
+const FeedBoxCaption = ({
+  post: { _id, text, name, avatar, user, likes, comments, date }
+}) => {
   return (
     <Grid.Row>
       <Grid className="FeedBox_caption">
-        <Grid.Row>
-          orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          efficitur lectus et massa fermentum viverra. Pellentesque accumsan dui
-          ac augue sodales molestie. Integer malesuada elementum turpis in
-          placerat. Vestibulum tincidunt dapibus leo imperdiet laoreet. Vivamus
-          blandit nulla nisi, eget vulputate est placerat ac. Vestibulum nec
-          venenatis libero, eget maximus erat. Integer quis porta lorem.
-          Suspendisse id mauris sit amet ipsum ultrices vulputate vel eu enim.
-          Aenean vehicula hendrerit lectus ac molestie. Praesent hendrerit ipsum
-          luctus massa gravnatis libero, eget maximus erat. Integer quis porta
-          lorem. Suspendisse id mauris sit amet ipsum ultrices vulputate vel eu
-          enim. Aenean vehicula hendrerit lectus ac molestie. Praesent hendrerit
-          ipsum luctus massa ipsum ultrices vulputate vel eu enim. Aenean
-          vehicula hendrerit lectus ac molestie. Praesent hendrerit ipsum luctus
-          massa gravnatis libero, eget maximus erat. Integer quis porta lorem.
-          Suspendisse id mauris sit amet ipsum ultrices vulputate vel eu enim.
-          Aenean vehicula hendrerit lectus ac molestie. Praesent hendrerit ipsum
-          luctus massa ipsum ultrices vulputate vel eu enim. Aenean vehicula
-          hendrerit lectus ac molestie. Praesent hendrerit ipsum luctus massa
-          gravnatis libero, eget maximus erat. Integer quis porta lorem.
-          Suspendisse id mauris sit amet ipsum ultrices vulputate vel eu enim.
-          Aenean vehicula hendrerit lectus ac molestie. Praesent hendrerit ipsum
-          luctus massa
-          <a href="/">#styel</a> &nbsp;<a href="/">#test</a> &nbsp;
-          <a href="/">#good</a>
-        </Grid.Row>
+        <Grid.Row>{text}</Grid.Row>
         <Grid.Row className="FeedBox__comments">
           코멘트 박스 리드 생성
           {/* {post.comments.slice(0, 4).map(comment => (
@@ -44,6 +23,10 @@ function FeedBoxCaption(props) {
       </Grid>
     </Grid.Row>
   );
-}
+};
+
+FeedBoxCaption.propTypes = {
+  post: PropTypes.object.isRequired
+};
 
 export default FeedBoxCaption;

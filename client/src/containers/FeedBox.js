@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { Image, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import "../styles/containers/FeedBox.css";
 
 import FeedBoxUserInfo from "../components/feedbox/FeedboxUserInfo";
@@ -10,19 +10,19 @@ import FeedBoxActionBox from "../components/feedbox/FeedBoxActionBox";
 import FeedBoxImageContainer from "../components/feedbox/FeedBoxImageContainer";
 import FeedBoxCaption from "../components/feedbox/FeedBoxCaption";
 
-function FeedBox({ auth: { user } }) {
+const FeedBox = ({ post }) => {
   return (
     <Fragment>
       <Grid stackable centered className="feedBox">
-        <FeedBoxImageContainer />
+        <FeedBoxImageContainer post={post} />
         <Grid.Column width={6} className="FeedBox_info-container">
-          <FeedBoxUserInfo />
-          <FeedBoxCaption />
+          <FeedBoxUserInfo post={post} />
+          <FeedBoxCaption post={post} />
           <FeedBoxActionBox />
         </Grid.Column>
       </Grid>
       <Grid className="feedSpace " />
-
+      {/* 
       <Grid stackable centered className="feedBox">
         <Grid.Column
           width={10}
@@ -59,12 +59,12 @@ function FeedBox({ auth: { user } }) {
           <FeedBoxActionBox />
         </Grid.Column>
       </Grid>
-      <Grid className="feedSpace " />
+      <Grid className="feedSpace " /> */}
     </Fragment>
   );
-}
+};
 
-FeedBox.propTypes = { auth: PropTypes.object.isRequired };
+FeedBox.propTypes = { post: PropTypes.object.isRequired };
 
 const mapStateToProps = state => ({
   auth: state.auth
