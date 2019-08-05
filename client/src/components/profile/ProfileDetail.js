@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 const ProfileDetail = ({ profile: { profile } }) => {
-  return (
+  return profile === null ? (
+    <div>프로파일 없을때 나오는 정보</div>
+  ) : (
     <div>
       <div>{profile.location}</div>
       <div>{profile.status}</div>
