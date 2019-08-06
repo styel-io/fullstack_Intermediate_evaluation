@@ -27,7 +27,7 @@ class NewPostUpload extends Component {
     console.log("Preparing the upload");
     axios
       .post("/api/controllers/sign_s3", {
-        fileName: date.getTime() + "_" + fileName,
+        fileName: date.getTime() + "_" + fileName + "." + fileType,
         fileType: fileType
       })
       .then(response => {

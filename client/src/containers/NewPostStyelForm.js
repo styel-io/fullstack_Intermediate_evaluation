@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPostStandby } from "../actions/post";
 
-import { Grid, Form, Input, TextArea } from "semantic-ui-react";
+import { Grid, Form, Image, TextArea } from "semantic-ui-react";
 
-const NewPostStyelForm = ({
-  addPostStandby,
-  standby: { imageurl, styel, text, location }
-}) => {
-  const [styel, setStyel] = useState(styel);
-  const [text, setText] = useState(text);
-  const [location, setLocation] = useState(location);
-  const [imageurl, setImageurl] = useState(imageurl);
+const NewPostStyelForm = ({ addPostStandby, standby }) => {
+  const [styel, setStyel] = useState(standby.styel);
+  const [text, setText] = useState(standby.text);
+  const [location, setLocation] = useState(standby.location);
+  const [imageurl, setImageurl] = useState(standby.imageurl);
 
   return (
     <Form

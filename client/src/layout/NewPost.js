@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addPost } from "../actions/post";
+import { addPost, addPostStandby } from "../actions/post";
 import clsx from "clsx";
 import { Grid } from "semantic-ui-react";
 
@@ -19,6 +19,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import NewPostUpload from "../containers/NewPostUpload";
+import NewPostStyelForm from "../containers/NewPostStyelForm";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -116,7 +117,7 @@ function getStepContent(step) {
     case 0:
       return <NewPostUpload />;
     case 1:
-      return "What is an ad group anyways?";
+      return <NewPostStyelForm />;
     case 2:
       return "This is the bit I really care about!";
     case 3:
@@ -126,7 +127,7 @@ function getStepContent(step) {
   }
 }
 
-const NewPost = ({ addPost, standby: { imageurl } }) => {
+const NewPost = ({ addPost, addPostStandby, standby: { imageurl, styel } }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -169,6 +170,21 @@ const NewPost = ({ addPost, standby: { imageurl } }) => {
       newSkipped.add(activeStep);
       return newSkipped;
     });
+  }
+
+  function handleNextImageUploaded() {
+    console.log(imageurl);
+    if (imageurl === undefined) {
+      return console.log("이미지가 등록되지 않았습니다");
+    }
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setSkipped(newSkipped);
   }
 
   function handleReset() {
@@ -256,13 +272,23 @@ const NewPost = ({ addPost, standby: { imageurl } }) => {
                 </Grid.Column>
                 <Grid.Column width={8} className="NewPost_navBtn" />
                 <Grid.Column width={4} className="NewPost_navBtn">
-                  <Button
-                    size="large"
-                    onClick={handleNext}
-                    className={classes.buttonPrimary}
-                  >
-                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                  </Button>
+                  {activeStep === 0 ? (
+                    <Button
+                      size="large"
+                      onClick={handleNextImageUploaded}
+                      className={classes.buttonPrimary}
+                    >
+                      Next
+                    </Button>
+                  ) : (
+                    <Button
+                      size="large"
+                      onClick={handleNext}
+                      className={classes.buttonPrimary}
+                    >
+                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                  )}
                 </Grid.Column>
               </Grid>
             </div>
@@ -274,7 +300,8 @@ const NewPost = ({ addPost, standby: { imageurl } }) => {
 };
 
 NewPost.propTypes = {
-  addPost: PropTypes.func.isRequired
+  addPost: PropTypes.func.isRequired,
+  addPostStandby: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -283,5 +310,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addPost }
+  { addPost, addPostStandby }
 )(NewPost);
