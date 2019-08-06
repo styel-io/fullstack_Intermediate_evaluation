@@ -175,8 +175,8 @@ const NewPost = ({ addPost }) => {
   // https://basketdeveloper.tistory.com/55 리액트 이미지 파일 업로드 하기
 
   return (
-    <div className="NewPost_align">
-      <div className={classes.root}>
+    <div>
+      <div className={classes.root} className="NewPost_align">
         <Stepper
           activeStep={activeStep}
           alternativeLabel
