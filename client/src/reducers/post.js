@@ -7,13 +7,14 @@ import {
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
-  ADD_IMAGE
+  UPLOAD_MEDIA
 } from "../actions/types";
 
 const initialState = {
   posts: [],
   post: null,
   loading: true,
+  standby: {},
   error: {}
 };
 
@@ -39,12 +40,8 @@ export default (state = initialState, action) => {
         posts: [payload, ...state.posts],
         loading: false
       };
-    case ADD_IMAGE:
-      return {
-        ...state,
-        posts: [payload, ...state.posts],
-        loading: false
-      };
+    case UPLOAD_MEDIA:
+      return { ...state, standby: payload.imageurl };
     case DELETE_POST:
       return {
         ...state,

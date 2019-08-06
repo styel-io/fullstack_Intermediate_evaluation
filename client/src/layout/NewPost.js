@@ -18,6 +18,8 @@ import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import NewPostUpload from "../containers/NewPostUpload";
+
 const QontoConnector = withStyles({
   alternativeLabel: {
     top: 10,
@@ -112,7 +114,7 @@ function getSteps() {
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return "Upload";
+      return <NewPostUpload />;
     case 1:
       return "What is an ad group anyways?";
     case 2:
@@ -124,10 +126,11 @@ function getStepContent(step) {
   }
 }
 
-const NewPost = ({ addPost }) => {
+const NewPost = ({ addPost, standby: { imageurl } }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+
   const steps = getSteps();
 
   function isStepOptional(step) {
@@ -274,7 +277,11 @@ NewPost.propTypes = {
   addPost: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  standby: state.post.standby
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { addPost }
 )(NewPost);

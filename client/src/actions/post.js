@@ -8,8 +8,17 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT
+  REMOVE_COMMENT,
+  UPLOAD_MEDIA
 } from "./types";
+
+// Upload media
+export const setImageUrl = imageurl => dispatch => {
+  dispatch({
+    type: UPLOAD_MEDIA,
+    payload: imageurl
+  });
+};
 
 // Get posts
 export const getPosts = () => async dispatch => {
