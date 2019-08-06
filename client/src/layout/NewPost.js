@@ -125,7 +125,11 @@ function getStepContent(step) {
   }
 }
 
-const NewPost = ({ addPost, addPostStandby, standby }) => {
+const NewPost = ({
+  addPost,
+  addPostStandby,
+  standby: { styel, text, location, imageurl }
+}) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -140,7 +144,7 @@ const NewPost = ({ addPost, addPostStandby, standby }) => {
     return skipped.has(step);
   }
 
-  const handleNext = addPostStandby => {
+  const handleNext = () => {
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -171,9 +175,9 @@ const NewPost = ({ addPost, addPostStandby, standby }) => {
   }
 
   function handleNextImageUploaded() {
-    if (standby.imageurl === undefined) {
-      return console.log("이미지가 등록되지 않았습니다");
-    }
+    // if (standby.imageurl === undefined) {
+    //   return console.log("이미지가 등록되지 않았습니다");
+    // }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());

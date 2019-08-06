@@ -18,7 +18,15 @@ const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
   return (
     <Form
       className=""
-      onSubmit={e => {
+      onClick={e => {
+        e.preventDefault();
+        addPostStandby({ styel, text, location, imageurl });
+      }}
+      onMouseOut={e => {
+        e.preventDefault();
+        addPostStandby({ styel, text, location, imageurl });
+      }}
+      onKeydown={e => {
         e.preventDefault();
         addPostStandby({ styel, text, location, imageurl });
       }}
@@ -46,7 +54,6 @@ const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
               value={location}
               onChange={e => setLocation(e.target.value)}
             />
-            <Form.Button transparent content="Submit" />
           </Grid>
         </Grid.Column>
       </Grid>
