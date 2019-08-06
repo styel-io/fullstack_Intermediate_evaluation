@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { addPostStandby } from "../../actions/post";
+import { addPostStandby } from "../actions/post";
 import { connect } from "react-redux";
 
 class NewPostUpload extends Component {
