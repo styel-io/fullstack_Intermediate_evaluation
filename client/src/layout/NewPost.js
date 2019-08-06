@@ -132,6 +132,9 @@ const NewPost = ({
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+  const [newPostComplete, setNewPostComplete] = React.useState(false);
+
+  if (newPostComplete) return <Redirect to="/" />;
 
   const steps = getSteps();
 
@@ -148,7 +151,7 @@ const NewPost = ({
 
     if (activeStep === steps.length - 1) {
       addPost({ styel, text, location, imageurl });
-      return <Redirect to={"/"} />;
+      return setNewPostComplete(true);
     }
 
     if (isStepSkipped(activeStep)) {
