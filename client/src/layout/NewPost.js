@@ -192,7 +192,7 @@ const NewPost = ({ addPost, addPostStandby, standby }) => {
 
   return (
     <div>
-      <div className={classes.root} className="NewPost_align">
+      <div className={classes.root}>
         <Stepper
           activeStep={activeStep}
           alternativeLabel
