@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 import Alert from "../Alert";
-import { Grid, Header, Message, Segment } from "semantic-ui-react";
+import { Grid, Header, Message } from "semantic-ui-react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 300
+    width: "100%"
   },
   button: {
     margin: theme.spacing(1)
@@ -30,6 +30,8 @@ const useStyles = makeStyles(theme => ({
   },
   buttonPrimary: {
     margin: theme.spacing(1),
+    marginTop: "2rem",
+    marginBottom: "1rem",
     color: "#22b573"
   },
   label: {
@@ -70,6 +72,7 @@ const Login = ({ login, isAuthenticated }) => {
 
           <form className={classes.container} onSubmit={e => onSubmit(e)}>
             <TextField
+              fullWidth="true"
               id="standard-email"
               label="Email"
               placeholder="Email Address"
@@ -79,6 +82,7 @@ const Login = ({ login, isAuthenticated }) => {
               margin="normal"
             />
             <TextField
+              fullWidth="true"
               id="standard-password"
               label="Password"
               placeholder="Password"
@@ -88,6 +92,7 @@ const Login = ({ login, isAuthenticated }) => {
               margin="normal"
             />
             <Button
+              fullWidth="true"
               variant="outlined"
               type="submit"
               color="primary"
