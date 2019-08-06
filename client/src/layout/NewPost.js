@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost, addPostStandby } from "../actions/post";
 import clsx from "clsx";
-import { Grid, Form, Image, TextArea } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 import "../styles/NewPost.css";
 
@@ -20,7 +20,6 @@ import Typography from "@material-ui/core/Typography";
 
 import NewPostUpload from "../containers/NewPostUpload";
 import NewPostStyelForm from "../containers/NewPostStyelForm";
-import NewPostTextForm from "../containers/NewPostTextForm";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
