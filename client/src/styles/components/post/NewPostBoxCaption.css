@@ -14,14 +14,23 @@
   .NewPostBox_caption {
     position: relative;
     height: 300px;
+    max-width: 600px;
+    width: 100%;
   }
 }
 
 .NewPostBox_comment-box {
   position: absolute !important;
   bottom: 0rem !important;
+  padding-top: 1rem;
   width: 100%;
   height: 60px;
-  border-top: 1px solid lightgray;
+  /* border-top: 1px solid lightgray; */
   width: 330px;
+}
+@media only screen and (max-width: 767px) {
+  .NewPostBox_comment-box {
+    max-width: 600px;
+    width: 100%;
+  }
 }

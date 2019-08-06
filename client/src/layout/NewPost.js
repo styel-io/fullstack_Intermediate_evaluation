@@ -109,7 +109,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ["Upload", "Let's Styel", "Confirm"];
+  return ["Upload", "Let's Styel"];
 }
 
 function getStepContent(step) {
@@ -118,8 +118,6 @@ function getStepContent(step) {
       return <NewPostUpload />;
     case 1:
       return <NewPostStyelForm />;
-    case 2:
-      return "Confirm";
     default:
       return "Unknown step";
   }
@@ -146,6 +144,11 @@ const NewPost = ({
 
   const handleNext = () => {
     let newSkipped = skipped;
+
+    if (activeStep === steps.length - 1) {
+      return addPost({ styel, text, location, imageurl });
+    }
+
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
       newSkipped.delete(activeStep);
@@ -261,7 +264,7 @@ const NewPost = ({
                   >
                     Back
                   </Button>
-                  {isStepOptional(activeStep) && (
+                  {/* {isStepOptional(activeStep) && (
                     <Button
                       size="large"
                       onClick={handleSkip}
@@ -269,7 +272,7 @@ const NewPost = ({
                     >
                       Skip
                     </Button>
-                  )}
+                  )} */}
                 </Grid.Column>
                 <Grid.Column width={8} className="NewPost_navBtn" />
                 <Grid.Column width={4} className="NewPost_navBtn">

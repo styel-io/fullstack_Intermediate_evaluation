@@ -1,23 +1,19 @@
-.FeedBox_username {
+.NewPostBox_username {
   padding-left: 1rem;
 }
 @media only screen and (max-width: 767px) {
-  .FeedBox_username {
+  .NewPostBox_username {
     padding-left: 0px;
   }
 }
 
-.FeedBox_user-info {
+.NewPostBox_user-info {
   padding-bottom: 1rem;
   padding-top: 1rem;
   padding-left: 0rem;
   padding-right: 0rem;
 }
 @media only screen and (max-width: 767px) {
-  .FeedBox_user-info {
+  .NewPostBox_user-info {
   }
-}
-.FeedBox_dateFromNow {
-  color: rgb(146, 146, 146);
-  padding-left: 1rem;
 }

@@ -51,14 +51,14 @@ const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
               autoFocus
             />
           </Grid>
-
-          <Input
-            transparent
-            className="NewPostBox_comment-box"
-            placeholder="Location"
-            value={location}
-            onChange={e => setLocation(e.target.value)}
-          />
+          <Grid className="NewPostBox_comment-box">
+            <TextField
+              fullWidth="true"
+              placeholder="Location"
+              value={location}
+              onChange={e => setLocation(e.target.value)}
+            />
+          </Grid>
         </Grid.Column>
       </Grid>
     </Form>
