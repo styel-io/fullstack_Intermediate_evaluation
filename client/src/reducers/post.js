@@ -7,7 +7,7 @@ import {
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
-  UPLOAD_MEDIA
+  ADD_POST_STANDBY
 } from "../actions/types";
 
 const initialState = {

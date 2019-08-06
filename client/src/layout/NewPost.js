@@ -18,7 +18,7 @@ import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-import NewPostUpload from "../containers/NewPostUpload";
+import NewPostUpload from "../components/post/NewPostUpload";
 
 const QontoConnector = withStyles({
   alternativeLabel: {

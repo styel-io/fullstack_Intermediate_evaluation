@@ -14,10 +14,10 @@ import {
 
 // Upload media
 export const addPostStandby = ({
+  imageurl,
   text,
-  styel,
   location,
-  imageurl
+  styel
 }) => dispatch => {
   let data = {
     text: text,

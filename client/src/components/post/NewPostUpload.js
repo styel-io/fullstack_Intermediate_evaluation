@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { setImageUrl } from "../actions/post";
+import { addPostStandby } from "../../actions/post";
 import { connect } from "react-redux";
 
 class NewPostUpload extends Component {
@@ -35,7 +35,7 @@ class NewPostUpload extends Component {
         var signedRequest = returnData.signedRequest;
         var url = returnData.url;
         this.setState({ imageurl: url });
-        this.props.addPostStandby(this.state.imageurl);
+        this.props.addPostStandby(this.state);
         console.log("Recieved a signed request " + signedRequest);
 
         // Put the fileType in the headers for the upload
@@ -84,5 +84,5 @@ class NewPostUpload extends Component {
 
 export default connect(
   null,
-  { setImageUrl }
+  { addPostStandby }
 )(NewPostUpload);
