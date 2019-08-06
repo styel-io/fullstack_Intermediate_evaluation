@@ -1,8 +1,8 @@
 a {
-  color: #2e2e2e;
+  color: #8d8d8d;
 }
 a:hover {
-  color: #8d8d8d;
+  color: #2e2e2e;
 }
 
 ::-webkit-scrollbar {
