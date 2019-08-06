@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { addPost, addPostStandby } from "../actions/post";
 import clsx from "clsx";
 import { Grid } from "semantic-ui-react";
@@ -146,7 +147,8 @@ const NewPost = ({
     let newSkipped = skipped;
 
     if (activeStep === steps.length - 1) {
-      return addPost({ styel, text, location, imageurl });
+      addPost({ styel, text, location, imageurl });
+      return <Redirect to={"/"} />;
     }
 
     if (isStepSkipped(activeStep)) {

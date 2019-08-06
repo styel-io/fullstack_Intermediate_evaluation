@@ -38,7 +38,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         posts: [payload, ...state.posts],
-        loading: false
+        loading: false,
+        standby: {}
       };
     case ADD_POST_STANDBY:
       return { ...state, standby: payload };
