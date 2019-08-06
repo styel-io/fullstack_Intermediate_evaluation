@@ -9,14 +9,26 @@ import {
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
-  UPLOAD_MEDIA
+  ADD_POST_STANDBY
 } from "./types";
 
 // Upload media
-export const setImageUrl = imageurl => dispatch => {
+export const addPostStandby = ({
+  text,
+  styel,
+  location,
+  imageurl
+}) => dispatch => {
+  let data = {
+    text: text,
+    styel: styel,
+    location: location,
+    imageurl: imageurl
+  };
+
   dispatch({
-    type: UPLOAD_MEDIA,
-    payload: imageurl
+    type: ADD_POST_STANDBY,
+    payload: data
   });
 };
 

@@ -22,4 +22,4 @@ export const DELETE_POST = "DELETE_POST";
 export const ADD_POST = "ADD_POST";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
-export const UPLOAD_MEDIA = "UPLOAD_MEDIA";
+export const ADD_POST_STANDBY = "ADD_POST_STANDBY";

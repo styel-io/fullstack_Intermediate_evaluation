@@ -9,7 +9,10 @@ class NewPostUpload extends Component {
     super(props);
     this.state = {
       success: false,
-      imageurl: ""
+      imageurl: null,
+      text: null,
+      location: null,
+      styel: null
     };
   }
 
@@ -32,7 +35,7 @@ class NewPostUpload extends Component {
         var signedRequest = returnData.signedRequest;
         var url = returnData.url;
         this.setState({ imageurl: url });
-        this.props.setImageUrl(this.state.imageurl);
+        this.props.addPostStandby(this.state.imageurl);
         console.log("Recieved a signed request " + signedRequest);
 
         // Put the fileType in the headers for the upload

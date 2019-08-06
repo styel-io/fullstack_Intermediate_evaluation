@@ -5,7 +5,7 @@ import { addPost } from "../../actions/post";
 
 import "../styles/NewPost.css";
 
-const PostForm = ({ addPost, standby: {} }) => {
+const PostForm = ({ addPost }) => {
   const [text, setText] = useState("");
   const [location, setLocation] = useState("");
 

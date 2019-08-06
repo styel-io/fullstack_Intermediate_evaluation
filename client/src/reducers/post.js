@@ -40,8 +40,8 @@ export default (state = initialState, action) => {
         posts: [payload, ...state.posts],
         loading: false
       };
-    case UPLOAD_MEDIA:
-      return { ...state, standby: payload.imageurl };
+    case ADD_POST_STANDBY:
+      return { ...state, standby: payload };
     case DELETE_POST:
       return {
         ...state,
