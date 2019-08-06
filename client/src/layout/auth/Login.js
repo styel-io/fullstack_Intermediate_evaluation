@@ -8,6 +8,7 @@ import { Grid, Header, Message } from "semantic-ui-react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,7 +33,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     marginTop: "2rem",
     marginBottom: "1rem",
-    color: "#22b573"
+    color: "#22b573",
+    borderColor: "#22b573"
   },
   label: {
     color: "#22b573"
@@ -66,9 +68,9 @@ const Login = ({ login, isAuthenticated }) => {
     <Fragment>
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 350 }} className="signform">
-          <Header as="h2" color="teal" textAlign="center">
-            STYEL
-          </Header>
+          <Typography variant="h3" gutterBottom>
+            STYLE
+          </Typography>
 
           <form className={classes.container} onSubmit={e => onSubmit(e)}>
             <TextField
@@ -100,12 +102,18 @@ const Login = ({ login, isAuthenticated }) => {
             >
               Login
             </Button>
+            <Button
+              size="large"
+              fullWidth="true"
+              variant="outlined"
+              type="submit"
+              className={classes.button}
+            >
+              New to us? <Link to="/register">&nbsp; Sign Up</Link>
+            </Button>
           </form>
 
           <Alert />
-          <Message id="replaceAlert">
-            New to us? <Link to="/register">&nbsp; Sign Up</Link>
-          </Message>
         </Grid.Column>
       </Grid>
     </Fragment>
