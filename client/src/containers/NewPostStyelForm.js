@@ -7,14 +7,14 @@ import NewPostUserInfo from "../components/post/NewPostUserInfo";
 import "../styles/containers/NewPostBox.css";
 import "../styles/components/post/NewPostBoxCaption.css";
 
-import { Grid, Form, Image, TextArea, Input } from "semantic-ui-react";
+import { Grid, Form, Image } from "semantic-ui-react";
 import TextField from "@material-ui/core/TextField";
 
 const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
-  const [styel, setStyel] = useState(standby.styel);
+  const [styel] = useState(standby.styel);
   const [text, setText] = useState(standby.text);
   const [location, setLocation] = useState(standby.location);
-  const [imageurl, setImageurl] = useState(standby.imageurl);
+  const [imageurl] = useState(standby.imageurl);
 
   return (
     <Form

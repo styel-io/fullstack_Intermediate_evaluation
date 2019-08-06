@@ -11,14 +11,14 @@ const FeedBoxCaption = ({
     <Grid.Row>
       <Grid className="FeedBox_caption">
         <Grid.Row>{text}</Grid.Row>
-        <Grid.Row className="FeedBox__comments">
+        {/* <Grid.Row className="FeedBox__comments">
           코멘트 박스 리드 생성
-          {/* {post.comments.slice(0, 4).map(comment => (
+          {post.comments.slice(0, 4).map(comment => (
                   <div key={comment.id} className="PostModal__comment-item">
                     <strong>{comment.username}</strong> {comment.body}
                   </div>
-                ))} */}
-        </Grid.Row>
+                ))} 
+        </Grid.Row> */}
       </Grid>
     </Grid.Row>
   );

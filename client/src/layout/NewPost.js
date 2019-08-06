@@ -127,7 +127,8 @@ function getStepContent(step) {
 const NewPost = ({
   addPost,
   addPostStandby,
-  standby: { styel, text, location, imageurl }
+  standby: { styel, text, location, imageurl },
+  standby
 }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -167,25 +168,25 @@ const NewPost = ({
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   }
 
-  function handleSkip() {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
+  // function handleSkip() {
+  //   if (!isStepOptional(activeStep)) {
+  //     // You probably want to guard against something like this,
+  //     // it should never occur unless someone's actively trying to break something.
+  //     throw new Error("You can't skip a step that isn't optional.");
+  //   }
 
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
-    setSkipped(prevSkipped => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  }
+  //   setActiveStep(prevActiveStep => prevActiveStep + 1);
+  //   setSkipped(prevSkipped => {
+  //     const newSkipped = new Set(prevSkipped.values());
+  //     newSkipped.add(activeStep);
+  //     return newSkipped;
+  //   });
+  // }
 
   function handleNextImageUploaded() {
-    // if (standby.imageurl === undefined) {
-    //   return console.log("이미지가 등록되지 않았습니다");
-    // }
+    if (standby.imageurl === undefined) {
+      return console.log("이미지가 등록되지 않았습니다");
+    }
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -199,8 +200,6 @@ const NewPost = ({
   function handleReset() {
     setActiveStep(0);
   }
-
-  // https://basketdeveloper.tistory.com/55 리액트 이미지 파일 업로드 하기
 
   return (
     <div>

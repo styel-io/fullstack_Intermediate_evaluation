@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Dropzone from "react-dropzone";
 
 import { addPostStandby } from "../actions/post";
 import { connect } from "react-redux";
@@ -7,6 +8,7 @@ import { connect } from "react-redux";
 class NewPostUpload extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       success: false,
       imageurl: null,
@@ -16,14 +18,17 @@ class NewPostUpload extends Component {
     };
   }
 
-  handleChange = ev => {
-    let file = this.uploadInput.files[0];
+  handleChange = files => {
+    console.log(files[0]);
+    let file = files[0];
     // Split the filename to get the name and type
-    let fileParts = this.uploadInput.files[0].name.split(".");
+    let fileParts = files[0].name.split(".");
     let fileName = fileParts[0];
     let fileType = fileParts[1];
     // let randomNum = Math.floor(Math.random() * 11);
     let date = new Date();
+
+    console.log(fileName, fileType);
     console.log("Preparing the upload");
     axios
       .post("/api/controllers/sign_s3", {
@@ -60,23 +65,32 @@ class NewPostUpload extends Component {
   };
 
   render() {
-    const Success_message = () => (
+    const SuccessMessage = () => (
       <div style={{ padding: 50 }}>
-        <h3 style={{ color: "green" }}>SUCCESSFUL UPLOAD</h3>
+        <h3 style={{ color: "#22b573" }}>SUCCESSFUL UPLOAD</h3>
       </div>
     );
     return (
       <div>
-        <center>
-          {this.state.success ? <Success_message /> : null}
-          <input
-            onChange={this.handleChange}
-            ref={ref => {
-              this.uploadInput = ref;
-            }}
-            type="file"
-          />
-        </center>
+        <div className="NewPostBoard__dropzone" id="NewPost_imagePreview">
+          <Dropzone onDrop={acceptedFiles => this.handleChange(acceptedFiles)}>
+            {({ getRootProps, getInputProps }) => (
+              <section className="NewPostBoard__dropzone-inner-wrapper">
+                <div
+                  className="NewPostBoard__dropzone-inner-content"
+                  {...getRootProps()}
+                >
+                  <input {...getInputProps()} />
+                  <div className="fa fa-camera NewPostBoard__dropzone-icon">
+                    <i aria-hidden="true" />
+                  </div>
+                  {this.state.success ? <SuccessMessage /> : null}
+                </div>
+              </section>
+            )}
+          </Dropzone>
+        </div>
+        <div style={{ textAlign: "center" }} />
       </div>
     );
   }
