@@ -8,6 +8,7 @@ import "../styles/containers/NewPostBox.css";
 import "../styles/components/post/NewPostBoxCaption.css";
 
 import { Grid, Form, Image, TextArea, Input } from "semantic-ui-react";
+import TextField from "@material-ui/core/TextField";
 
 const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
   const [styel, setStyel] = useState(standby.styel);
@@ -37,24 +38,27 @@ const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
         </Grid.Column>
         <Grid.Column width={6} className="NewPostBox_input-text">
           <NewPostUserInfo user={user} />
+
           <Grid className="NewPostBox_caption">
-            <Form.Field
-              transparent
-              control={TextArea}
+            <TextField
+              fullWidth="true"
+              rows="10"
+              multiline="true"
               placeholder="What's happening?"
-              name="text"
               value={text}
               onChange={e => setText(e.target.value)}
               required
-            />
-            <Form.Field
-              transparent
-              control={Input}
-              placeholder="Location"
-              value={location}
-              onChange={e => setLocation(e.target.value)}
+              autoFocus
             />
           </Grid>
+
+          <Input
+            transparent
+            className="NewPostBox_comment-box"
+            placeholder="Location"
+            value={location}
+            onChange={e => setLocation(e.target.value)}
+          />
         </Grid.Column>
       </Grid>
     </Form>

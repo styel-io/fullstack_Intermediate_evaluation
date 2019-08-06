@@ -93,7 +93,7 @@ QontoStepIcon.propTypes = {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "90%"
+    width: "100%"
   },
   button: {
     margin: theme.spacing(1)

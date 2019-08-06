@@ -10,10 +10,13 @@
 .FeedBox_user-info {
   padding-bottom: 1rem;
   padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
 }
-
+@media only screen and (max-width: 767px) {
+  .FeedBox_user-info {
+  }
+}
 .FeedBox_dateFromNow {
   color: rgb(146, 146, 146);
   padding-left: 1rem;

@@ -36,6 +36,8 @@
 
 .NewPostBox_input-text {
   position: relative !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 @media only screen and (max-width: 767px) {
   .NewPostBox_input-text {
