@@ -4,25 +4,51 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 import Alert from "../Alert";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Grid, Header, Message, Segment } from "semantic-ui-react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%"
+  },
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 300
+  },
+  button: {
+    margin: theme.spacing(1)
+  },
+  input: {
+    display: "none"
+  },
+  buttonPrimary: {
+    margin: theme.spacing(1),
+    color: "#22b573"
+  },
+  label: {
+    color: "#22b573"
+  }
+}));
 
 const Login = ({ login, isAuthenticated }) => {
-  const [formData, setFormData] = useState({
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
     email: "",
     password: ""
   });
 
-  const { email, password } = formData;
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
 
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const { email, password } = values;
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -41,29 +67,36 @@ const Login = ({ login, isAuthenticated }) => {
           <Header as="h2" color="teal" textAlign="center">
             STYEL
           </Header>
-          <Form size="large" onSubmit={e => onSubmit(e)}>
-            <Segment>
-              <Form.Input
-                fluid
-                type="email"
-                placeholder="Email Address"
-                name="email"
-                value={email}
-                onChange={e => onChange(e)}
-              />
-              <Form.Input
-                fluid
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={password}
-                onChange={e => onChange(e)}
-              />
-              <Button color="teal" fluid size="large" type="submit">
-                Login
-              </Button>
-            </Segment>
-          </Form>
+
+          <form className={classes.container} onSubmit={e => onSubmit(e)}>
+            <TextField
+              id="standard-email"
+              label="Email"
+              placeholder="Email Address"
+              className={classes.textField}
+              value={values.email}
+              onChange={handleChange("email")}
+              margin="normal"
+            />
+            <TextField
+              id="standard-password"
+              label="Password"
+              placeholder="Password"
+              className={classes.textField}
+              value={values.password}
+              onChange={handleChange("password")}
+              margin="normal"
+            />
+            <Button
+              variant="outlined"
+              type="submit"
+              color="primary"
+              className={classes.buttonPrimary}
+            >
+              Login
+            </Button>
+          </form>
+
           <Alert />
           <Message id="replaceAlert">
             New to us? <Link to="/register">&nbsp; Sign Up</Link>

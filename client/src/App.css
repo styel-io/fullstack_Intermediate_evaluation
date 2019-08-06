@@ -75,3 +75,17 @@ ul {
   border: 0px !important;
   padding-top: 1.5rem !important;
 }
+
+.ui.form input[type="email"] {
+  border: 0px !important;
+  padding-top: 1.5rem !important;
+}
+
+.ui.form input[type="password"] {
+  border: 0px !important;
+  padding-top: 1.5rem !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #22b573 !important;
+}
