@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost, addPostStandby } from "../actions/post";
 import clsx from "clsx";
-import { Grid } from "semantic-ui-react";
+import { Grid, Form, Image, TextArea } from "semantic-ui-react";
 
 import "../styles/NewPost.css";
 
@@ -20,6 +20,7 @@ import Typography from "@material-ui/core/Typography";
 
 import NewPostUpload from "../containers/NewPostUpload";
 import NewPostStyelForm from "../containers/NewPostStyelForm";
+import NewPostTextForm from "../containers/NewPostTextForm";
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -109,7 +110,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ["Upload", "Let's Styel", "Text", "Confirm"];
+  return ["Upload", "Let's Styel", "Confirm"];
 }
 
 function getStepContent(step) {
@@ -119,15 +120,13 @@ function getStepContent(step) {
     case 1:
       return <NewPostStyelForm />;
     case 2:
-      return "This is the bit I really care about!";
-    case 3:
       return "Confirm";
     default:
       return "Unknown step";
   }
 }
 
-const NewPost = ({ addPost, addPostStandby, standby: { imageurl, styel } }) => {
+const NewPost = ({ addPost, addPostStandby, standby }) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -142,7 +141,7 @@ const NewPost = ({ addPost, addPostStandby, standby: { imageurl, styel } }) => {
     return skipped.has(step);
   }
 
-  function handleNext() {
+  const handleNext = addPostStandby => {
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -151,7 +150,7 @@ const NewPost = ({ addPost, addPostStandby, standby: { imageurl, styel } }) => {
 
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     setSkipped(newSkipped);
-  }
+  };
 
   function handleBack() {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
@@ -173,8 +172,7 @@ const NewPost = ({ addPost, addPostStandby, standby: { imageurl, styel } }) => {
   }
 
   function handleNextImageUploaded() {
-    console.log(imageurl);
-    if (imageurl === undefined) {
+    if (standby.imageurl === undefined) {
       return console.log("이미지가 등록되지 않았습니다");
     }
     let newSkipped = skipped;
