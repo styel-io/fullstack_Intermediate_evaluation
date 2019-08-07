@@ -42,7 +42,7 @@ const NewPostStyelForm = ({ addPostStandby, standby, user }) => {
           <Grid className="NewPostBox_caption">
             <TextField
               fullWidth="true"
-              rows="10"
+              rows="4"
               multiline="true"
               placeholder="What's happening?"
               value={text}
