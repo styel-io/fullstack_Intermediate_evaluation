@@ -48,7 +48,7 @@ const EditProfileButton = ({ props, logout }) => {
         type="submit"
         className={classes.buttonPrimary}
       >
-        <Link to="/register">&nbsp; Edit Profile</Link>
+        <Link to="/Check_pass">&nbsp; Edit Profile</Link>
       </Button>
 
       <Button

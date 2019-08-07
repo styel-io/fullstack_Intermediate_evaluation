@@ -12,6 +12,10 @@ import Profile from "../layout/Profile";
 import ProfileMe from "../layout/ProfileMe";
 import NewPost from "../layout/NewPost";
 
+import UpdateBasic from "../layout/modify/UpdateBasic";
+
+import Check_pass from "../layout/Check_pass";
+
 const Routes = () => {
   return (
     <section className="container">
@@ -25,6 +29,8 @@ const Routes = () => {
         <PrivateRoute exact path="/profile/:id" component={Profile} />
 
         <PrivateRoute exact path="/newpost" component={NewPost} />
+        <PrivateRoute exact path="/Check_pass" component={Check_pass} />
+        <PrivateRoute exact path="/basic" component={UpdateBasic} />
 
         <Route component={NotFound} />
       </Switch>
