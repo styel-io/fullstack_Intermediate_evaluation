@@ -46,7 +46,7 @@ const EditProfileButton = ({ props, logout }) => {
         size="large"
         variant="outlined"
         type="submit"
-        className={classes.buttonPrimary}
+        className={classes.button}
       >
         <Link to="/Check_pass">&nbsp; Edit Profile</Link>
       </Button>
@@ -55,7 +55,7 @@ const EditProfileButton = ({ props, logout }) => {
         size="large"
         variant="outlined"
         type="submit"
-        className={classes.buttonPrimary}
+        className={classes.button}
       >
         <Link onClick={logout} to="/">
           <span className="hide-sm"> Logout</span>

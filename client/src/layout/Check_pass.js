@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { check } from "../actions/auth";
 import Alert from "../layout/Alert";
-import { Form, Grid, Header, Message, Segment, Menu } from "semantic-ui-react";
+import { Grid, Menu } from "semantic-ui-react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";

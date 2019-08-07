@@ -5,14 +5,7 @@ import { setAlert } from "../../actions/alert";
 import { updatebasic } from "../../actions/auth";
 import PropTypes from "prop-types";
 import Alert from "../../layout/Alert";
-import {
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment,
-  Divider
-} from "semantic-ui-react";
+import { Grid, Divider } from "semantic-ui-react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -58,13 +51,6 @@ const UpdateBasic = ({
   const classes = useStyles();
 
   const [values, setValues] = React.useState({
-    name: user.name,
-    email: user.email,
-    password: "",
-    password2: ""
-  });
-
-  const [formData, setFormData] = useState({
     name: user.name,
     email: user.email,
     password: "",
