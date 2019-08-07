@@ -13,6 +13,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
       {/* <Menu.Item>
         <Link to="/my_post">My Post</Link>
       </Menu.Item> */}
+
       <Menu.Item>
         <Link to="/newpost">
           <Icon size="big" name="add circle" />
