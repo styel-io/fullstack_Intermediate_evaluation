@@ -13,9 +13,10 @@ const FeedBoxUserInfo = ({
         <Grid.Column width={2}>
           <Image src={avatar} avatar size="mini" />
         </Grid.Column>
-        <Grid.Column width={13}>
-          <h3 className="FeedBox_username">{name}</h3>
-
+        <Grid.Column width={7}>
+          <h4 className="FeedBox_username">{name}</h4>
+        </Grid.Column>
+        <Grid.Column width={6}>
           <p className="FeedBox_dateFromNow">{moment(date).fromNow()}</p>
         </Grid.Column>
         <Grid.Column width={1}>
