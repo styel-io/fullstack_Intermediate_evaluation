@@ -10,7 +10,9 @@ const FeedBoxCaption = ({
   return (
     <Grid.Row>
       <Grid className="FeedBox_caption">
-        <Grid.Row>{text}</Grid.Row>
+        <Grid.Row>
+          <div dangerouslySetInnerHTML={{ __html: text }} />
+        </Grid.Row>
         {/* <Grid.Row className="FeedBox__comments">
           코멘트 박스 리드 생성
           {post.comments.slice(0, 4).map(comment => (
