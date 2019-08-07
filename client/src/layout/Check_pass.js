@@ -4,30 +4,60 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { check } from "../actions/auth";
 import Alert from "../layout/Alert";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment,
-  Menu
-} from "semantic-ui-react";
+import { Form, Grid, Header, Message, Segment, Menu } from "semantic-ui-react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%"
+  },
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: "100%"
+  },
+  button: {
+    margin: theme.spacing(1)
+  },
+  input: {
+    display: "none"
+  },
+  buttonPrimary: {
+    margin: theme.spacing(1),
+    marginTop: "2rem",
+    marginBottom: "1rem",
+    color: "#22b573",
+    borderColor: "#22b573"
+  },
+  label: {
+    color: "#22b573"
+  }
+}));
 
 const Check_pass = ({
   auth: { user, validate_checkpass },
   check,
   isAuthenticated
 }) => {
-  const [formData, setFormData] = useState({
-    password: "",
-    email: user.email
+  const classes = useStyles();
+
+  const [values, setValues] = React.useState({
+    email: user.email,
+    password: ""
   });
 
-  const { password, email } = formData;
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
 
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const { password, email } = values;
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -35,22 +65,38 @@ const Check_pass = ({
   };
 
   const checkPass = (
-    <Form size="large" onSubmit={e => onSubmit(e)}>
-      <Segment>
-        <Form.Input
-          fluid
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-          onChange={e => onChange(e)}
-        />
-        <Form.Input type="hidden" name="email" value={user.email} />
-        <Button color="teal" fluid size="large" type="submit">
-          Password Certify
-        </Button>
-      </Segment>
-    </Form>
+    <form className={classes.container} onSubmit={e => onSubmit(e)}>
+      <TextField
+        disabled
+        label="Email"
+        fullWidth="true"
+        name="email"
+        className={classes.textField}
+        value={user.email}
+      />
+      <TextField
+        fullWidth="true"
+        id="standard-password"
+        label="Password"
+        type="password"
+        placeholder="Password"
+        className={classes.textField}
+        value={values.password}
+        onChange={handleChange("password")}
+        margin="normal"
+      />
+
+      <Button
+        size="large"
+        fullWidth="true"
+        variant="outlined"
+        type="submit"
+        color="primary"
+        className={classes.buttonPrimary}
+      >
+        Password Certify
+      </Button>
+    </form>
   );
 
   const updateButton = (
@@ -73,12 +119,14 @@ const Check_pass = ({
     <Fragment>
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 350 }} className="signform">
-          <Header as="h2" color="teal" textAlign="center">
-            STYEL
-          </Header>
+          <Typography variant="h3" gutterBottom>
+            STYLE
+          </Typography>
+          <br />
           <Menu.Item>
             {/* {user.url ? checkPass} */}
-            {validate_checkpass ? updateButton : checkPass}
+            {/* {validate_checkpass ? updateButton : checkPass} */}
+            {validate_checkpass ? <Redirect to="/basic" /> : checkPass}
           </Menu.Item>
           <Alert />
           {/* <Message id="replaceAlert">
