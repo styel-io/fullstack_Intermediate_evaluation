@@ -69,7 +69,7 @@ const Login = ({ login, isAuthenticated }) => {
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 350 }} className="signform">
           <Typography variant="h3" gutterBottom>
-            STYLE
+            STYEL
           </Typography>
 
           <form className={classes.container} onSubmit={e => onSubmit(e)}>
