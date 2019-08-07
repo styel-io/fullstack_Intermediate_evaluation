@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 import Alert from "../Alert";
-import { Grid, Header, Message } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -77,6 +77,7 @@ const Login = ({ login, isAuthenticated }) => {
               fullWidth="true"
               id="standard-email"
               label="Email"
+              type="email"
               placeholder="Email Address"
               className={classes.textField}
               value={values.email}
@@ -87,6 +88,7 @@ const Login = ({ login, isAuthenticated }) => {
               fullWidth="true"
               id="standard-password"
               label="Password"
+              type="password"
               placeholder="Password"
               className={classes.textField}
               value={values.password}
