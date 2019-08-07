@@ -6,7 +6,6 @@ import { updatebasic } from "../../actions/auth";
 import PropTypes from "prop-types";
 import Alert from "../../layout/Alert";
 import {
-  Button,
   Form,
   Grid,
   Header,
@@ -14,6 +13,41 @@ import {
   Segment,
   Divider
 } from "semantic-ui-react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: "100%"
+  },
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: "100%"
+  },
+  button: {
+    margin: theme.spacing(1)
+  },
+  input: {
+    display: "none"
+  },
+  buttonPrimary: {
+    margin: theme.spacing(1),
+    marginTop: "2rem",
+    marginBottom: "1rem",
+    color: "#22b573",
+    borderColor: "#22b573"
+  },
+  label: {
+    color: "#22b573"
+  }
+}));
 
 const UpdateBasic = ({
   setAlert,
@@ -21,6 +55,15 @@ const UpdateBasic = ({
   updatebasic,
   isAuthenticated
 }) => {
+  const classes = useStyles();
+
+  const [values, setValues] = React.useState({
+    name: user.name,
+    email: user.email,
+    password: "",
+    password2: ""
+  });
+
   const [formData, setFormData] = useState({
     name: user.name,
     email: user.email,
@@ -28,10 +71,11 @@ const UpdateBasic = ({
     password2: ""
   });
 
-  const { name, email, password, password2 } = formData;
-  console.log(email);
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value });
+  };
+
+  const { name, email, password, password2 } = values;
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -47,58 +91,72 @@ const UpdateBasic = ({
   }
 
   return (
-    <Fragment clssName="signform">
+    <Fragment>
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 350 }} className="signform">
-          <Header as="h2" color="teal" textAlign="center">
-            STYEL
-          </Header>
+          <Typography variant="h3" gutterBottom>
+            STYLE
+          </Typography>
 
-          <Form size="large" onSubmit={e => onSubmit(e)}>
-            <Segment>
-              <Form.Input
-                fluid
-                type="text"
-                placeholder="Name"
-                name="name"
-                value={name}
-                onChange={e => onChange(e)}
-              />
+          <form className={classes.container} onSubmit={e => onSubmit(e)}>
+            <TextField
+              fullWidth="true"
+              id="standard-name"
+              label="Name"
+              type="text"
+              placeholder="Name"
+              className={classes.textField}
+              value={values.name}
+              onChange={handleChange("name")}
+              margin="normal"
+            />
 
-              <Form.Input
-                size="large"
-                fluid
-                type="email"
-                placeholder="Email Address"
-                name="email"
-                value={email}
-                onChange={e => onChange(e)}
-              />
-              <Divider clearing />
-              <Form.Input
-                size="large"
-                fluid
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={password}
-                onChange={e => onChange(e)}
-              />
-              <Form.Input
-                size="large"
-                fluid
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                value={password2}
-                onChange={e => onChange(e)}
-              />
+            <TextField
+              disabled
+              fullWidth="true"
+              id="standard-email"
+              label="Email"
+              type="email"
+              placeholder="Email Address"
+              className={classes.textField}
+              value={values.email}
+              onChange={handleChange("email")}
+              margin="normal"
+            />
+            <Divider variant="middle" />
+            <TextField
+              fullWidth="true"
+              id="standard-password"
+              label="Password"
+              type="password"
+              placeholder="Password"
+              className={classes.textField}
+              value={values.password}
+              onChange={handleChange("password")}
+              margin="normal"
+            />
+            <TextField
+              fullWidth="true"
+              id="standard-password2"
+              label="Confirm Password"
+              type="password"
+              placeholder="Confirm Password"
+              className={classes.textField}
+              value={values.password2}
+              onChange={handleChange("password2")}
+              margin="normal"
+            />
 
-              <Button size="large" color="teal" fluid type="submit">
-                Register
-              </Button>
-            </Segment>
-          </Form>
+            <Button
+              fullWidth="true"
+              variant="outlined"
+              type="submit"
+              color="primary"
+              className={classes.buttonPrimary}
+            >
+              Register
+            </Button>
+          </form>
           <Alert />
         </Grid.Column>
       </Grid>
