@@ -26,11 +26,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
       {/* <Menu.Item>
       <Link to="/upload_file">Upload_file</Link>
     </Menu.Item> */}
-      <Menu.Item>
-        <Link onClick={logout} to="/">
-          <span className="hide-sm"> Logout</span>
-        </Link>
-      </Menu.Item>
+
       {/* <Menu.Item>
       <Icon size="large" name="ellipsis vertical" />
     </Menu.Item> */}
