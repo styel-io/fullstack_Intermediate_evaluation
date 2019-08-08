@@ -17,8 +17,8 @@ const ProfileStatus = props => {
       >
         <span className="Profile__stats-count">
           {/* {user.followersCount} */} 10
-        </span>{" "}
-        {/* {pluralize(user.followersCount, "follower", "followers")} */}{" "}
+        </span>
+        {/* {pluralize(user.followersCount, "follower", "followers")} */}
         followers
       </div>
       <div
@@ -27,8 +27,8 @@ const ProfileStatus = props => {
       >
         <span className="Profile__stats-count">
           {/* {user.followingCount} */}56
-        </span>{" "}
-        {/* {pluralize(user.followingCount, "following", "following")} */}{" "}
+        </span>
+        {/* {pluralize(user.followingCount, "following", "following")} */}
         following
       </div>
     </div>
